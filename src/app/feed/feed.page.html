@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Feed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{ userImg }}">
+      </ion-avatar>
+
+      <div class="col-sm-12">
+        <h2 class="feedTitle col-sm-6">{{ userName }}</h2>
+        <p class="feedSubTitle col-sm-4">{{ dateNow }}</p>
+      </div>
+    </ion-item>
+  
+    <img src="{{ postImg }}">
+  
+    <ion-card-content>
+      <p>
+        Hello World :D
+      </p>
+
+      <p>
+        This is my first Ionic app. I'm doing a course about Ionic 3 but I'm updating that knowledges for Ionic 4 :p 
+      </p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small (click)="addLikeCount()">
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{ likeCount }} Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>6 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          1 minute ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
