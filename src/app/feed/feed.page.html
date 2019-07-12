@@ -5,43 +5,41 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngFor="let post of postUserList; let i = index">
     <ion-item>
       <ion-avatar item-start>
-        <img src="{{ userImg }}">
+        <img src="{{ post.userImg }}">
       </ion-avatar>
 
       <div class="col-sm-12">
-        <h2 class="feedTitle col-sm-6">{{ userName }}</h2>
-        <p class="feedSubTitle col-sm-4">{{ dateNow }}</p>
+        <h2 class="feedTitle col-sm-6">{{ post.userName }}</h2>
+        <p class="feedSubTitle col-sm-4">{{ post.postDate }}</p>
       </div>
     </ion-item>
   
-    <img src="{{ postImg }}">
+    <img src="{{ post.postImg }}">
   
     <ion-card-content>
       <p>
-        Hello World :D
-      </p>
-
-      <p>
-        This is my first Ionic app. I'm doing a course about Ionic 3 but I'm updating that knowledges for Ionic 4 :p 
+        {{post.postDescription}}
       </p>
     </ion-card-content>
-  
+
     <ion-row>
       <ion-col>
-        <button ion-button icon-start clear small (click)="addLikeCount()">
+        <button ion-button icon-start clear small (click)="postLikeControl(i)">
           <ion-icon name="thumbs-up"></ion-icon>
-          <div>{{ likeCount }} Likes</div>
+          <div>{{ post.postLikes }} Likes</div>
         </button>
       </ion-col>
+
       <ion-col>
         <button ion-button icon-start clear small>
           <ion-icon name="text"></ion-icon>
-          <div>6 Comments</div>
+          <div>0 Comments</div>
         </button>
       </ion-col>
+
       <ion-col align-self-center text-center>
         <ion-note>
           1 minute ago

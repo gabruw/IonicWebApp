@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HttpModule } from '@angular/http'
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -20,6 +21,7 @@ import { IntroPageModule } from './intro/intro.module';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
+    HttpModule,
     AppRoutingModule,
     FeedPageModule,
     IntroPageModule

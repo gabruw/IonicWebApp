@@ -6,19 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feed.page.scss'],
 })
 export class FeedPage implements OnInit {
-  public userImg = "assets/img/userImg/myUserPic.png";
-  public userName = "Gabriel França";
   public dateNow = new Date().toLocaleDateString("pt-BR");
-  public postImg = "assets/img/postImg/maxresdefault.jpg";
+  public timeNow = new Date().getTime().toLocaleString("pt-BR");
 
-  public likeCount = 0;
-  public addLikeCount(): number{
-    return this.likeCount++;
+  public postUserList =[
+    {
+      "userImg": "assets/img/userImg/myUserPic.png",
+      "userName": "Gabriel França",
+      "postDate": "11 de Julho - 2019",
+      "postDescription": "",
+      "postImg": "assets/img/postImg/maxresdefault.jpg",
+      "postLikes": 0
+    },
+    {
+      "userImg": "assets/img/userImg/myUserPic.png",
+      "userName": "Gabriel França",
+      "postDate": "12 de Julho - 2019",
+      "postDescription": "Hello guys, it works!",
+      "postImg": "",
+      "postLikes": 0
+    },
+  ]
+
+  public postLikeControl(position: number){
+    this.postUserList[position].postLikes++;
   }
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }

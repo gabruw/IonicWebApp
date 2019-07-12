@@ -5,17 +5,23 @@
 </ion-header>
 
 <ion-content>
-    <ion-slides pager="true" [options]="slideOpts">
-      <ion-slide id="Slide1">
-        <h1>Slide 1</h1>
-      </ion-slide>
+    <ion-slides pager="true" [options]="slideOpts" #slider>
+      <ion-slide class="col-sm-12" *ngFor="let page of slidePages">
+        <div class="row">
+          <ion-item color="dark">
+            {{page.title}}
+          </ion-item>
 
-      <ion-slide id="Slide2">
-        <h1>Slide 2</h1>
-      </ion-slide>
-        
-      <ion-slide id="Slide3">
-        <h1>Slide 3</h1>
+          <img src="{{page.img}}">
+          
+          <ion-item color="primary">
+            {{page.pageNum}} | {{page.content}}
+          </ion-item>
+
+          <ion-item color="danger">
+              {{page.describe}}
+            </ion-item>
+        </div>
       </ion-slide>
     </ion-slides>
 </ion-content>
