@@ -1,9 +1,49 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>consultaCep</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Consulta CEP</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label position="floating">Digite o CEP</ion-label>
+    <br>
+    <ion-input type="number" [(ngModel)]="cep" required></ion-input>
+  </ion-item>
 
+  <br>
+
+  <ion-button expand="full" (click)="getCep()">Enviar</ion-button>
+
+  <br>
+
+  <div *ngIf="address != null">
+    <ion-item color="success">
+      <h2 style="text-align: center;">Informações</h2>
+    </ion-item>
+    
+    <ion-item color="primary">
+        <br>
+        CEP: {{ address.cep }}
+        <br><br>  
+        Logradouro: {{ address.logradouro }}
+        <br><br>
+        Complemento: {{ address.complemento }}
+        <br><br>
+        Bairro: {{ address.bairro }}
+        <br><br>
+        Localidade:{{ address.localidade }} - {{ address.uf }}
+        <br><br>
+    </ion-item>
+
+    <ion-item color="danger">
+        <br>
+        Unidade: {{ address.unidade }}
+        <br><br>
+        IBGE: {{ address.ibge }}
+        <br><br>
+        GIA: {{ address.gia }}
+        <br><br>
+    </ion-item>
+  </div> 
 </ion-content>

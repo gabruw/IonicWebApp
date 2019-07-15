@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpModule } from '@angular/http'
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -12,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { FeedPageModule } from './feed/feed.module';
 import { IntroPageModule } from './intro/intro.module';
+import { ConsultaCepPageModule } from './consulta-cep/consulta-cep.module';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,12 @@ import { IntroPageModule } from './intro/intro.module';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    HttpModule,
+    HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     FeedPageModule,
-    IntroPageModule
+    IntroPageModule,
+    ConsultaCepPageModule
   ],
   providers: [
     StatusBar,

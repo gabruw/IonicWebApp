@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CepService } from '../api/cep.service';
+import { IAddress } from '../model/address';
 
 @Component({
   selector: 'app-consulta-cep',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./consulta-cep.page.scss'],
 })
 export class ConsultaCepPage implements OnInit {
+  constructor(private _seviceCEP : CepService) { }
 
-  constructor() { }
+  public cep: number;
+  private address : IAddress;
 
-  ngOnInit() {
+  getCep(){
+    this._seviceCEP.getAddressByCep(this.cep).subscribe(data => this.address = data);
   }
 
+  ngOnInit() { }
 }
